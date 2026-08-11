@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horror Script Automation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">PERSONAL CREATOR TOOL</div>
+      <h1>Horror Script Automation</h1>
+    </div>
+    <div class="status-pill"><span id="healthDot"></span><span id="healthText">Checking…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="stats-grid">
+      <article class="stat"><span>Total Stories</span><strong id="totalStories">0</strong></article>
+      <article class="stat"><span>Unused</span><strong id="unusedStories">0</strong></article>
+      <article class="stat"><span>Used</span><strong id="usedStories">0</strong></article>
+      <article class="stat"><span>Scripts</span><strong id="generatedScripts">0</strong></article>
+      <article class="stat"><span>Last Run</span><strong id="lastRun">—</strong></article>
+      <article class="stat"><span>Next Run</span><strong id="nextRun">09:00 IST</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Generate</h2>
+          <p id="generationStatus">Choose a story or let Research Mode create one when the queue is empty.</p>
+        </div>
+        <button id="generateBtn" class="primary">Generate Next Story</button>
+      </div>
+      <div class="meta-row">
+        <span id="modelBadge">Model: —</span>
+        <span id="researchBadge">Research Mode: —</span>
+        <span id="scheduleBadge">Schedule: —</span>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <section class="panel">
+        <div class="panel-head">
+          <div><h2>Story Queue</h2><p>Add ideas before the daily run.</p></div>
+          <button id="showAddStory" class="secondary">+ Add Story</button>
+        </div>
+
+        <form id="storyForm" class="story-form hidden">
+          <input id="storyTitle" placeholder="Story title" required>
+          <select id="storyType">
+            <option>Original</option>
+            <option>Creepypasta</option>
+            <option>Japanese</option>
+            <option>Paranormal</option>
+            <option>Psychological</option>
+            <option>True Case</option>
+          </select>
+          <input id="storySource" placeholder="Source (Original, Public Domain, etc.)" value="Original">
+          <input id="storySourceUrl" placeholder="Source URL (optional)">
+          <textarea id="storyDescription" placeholder="Short story premise / source details" required></textarea>
+          <div class="form-actions">
+            <button type="submit" class="primary">Add Story</button>
+            <button type="button" id="cancelStory" class="secondary">Cancel</button>
+          </div>
+        </form>
+
+        <div id="storyList" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div><h2>Generated Scripts</h2><p>Long-form + Hook Short + Climax Short.</p></div>
+          <button id="refreshBtn" class="secondary">Refresh</button>
+        </div>
+        <div id="scriptList" class="list"></div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div><h2>Controls</h2><p>Personal-use controls. Reset only changes story used/unused status.</p></div>
+        <button id="resetBtn" class="danger">Reset Story Queue</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
